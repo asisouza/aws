@@ -1,0 +1,28 @@
+{
+    "detail-type": [
+      "AWS API Call via CloudTrail"
+    ],
+    "source": [
+      "aws.ec2"
+    ],
+    "detail": {
+      "eventSource": [
+        "ec2.amazonaws.com"
+      ],
+      "requestParameters": {
+        "tagSet": {
+          "items": {
+            "value": [
+              "gp3"
+            ],
+            "key": [
+              "VolumeType"
+            ]
+          }
+        }
+      },
+      "eventName": [
+        "CreateTags"
+      ]
+    }
+  }

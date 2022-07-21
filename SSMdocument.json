@@ -1,0 +1,30 @@
+{
+    "description": "Modify ebs volume to gp3",
+    "assumeRole": "{{ AutomationAssumeRole }}",
+    "schemaVersion": "0.3",
+    "parameters": {
+      "AutomationAssumeRole": {
+        "default": "",
+        "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
+        "type": "String"
+      },
+      "EBSVolumeId": {
+        "default": "",
+        "description": "(Required) The EBS Volume Id to be converted to gp3",
+        "type": "String"
+      }
+    },
+    "mainSteps": [
+      {
+        "inputs": {
+          "VolumeId": "{{ EBSVolumeId }}",
+          "VolumeType": "gp3",
+          "Service": "ec2",
+          "Api": "ModifyVolume"
+        },
+        "name": "ModifyVolume",
+        "action": "aws:executeAwsApi",
+        "isEnd": true
+      }
+    ]
+  }
